@@ -68,35 +68,49 @@ $(document).ready(function(){
 	function showTable(){
 		hideAll();
 		$(".table-container").show();
-		for(let i = 0; i < data.length; i++) {
+		for(let i=0; i < data.length; i++){
 			var rowData = data[i];
-			$(".table-container tbody").append( /* script to load the row to the table */ );
+		    $(".table-container tbody").append(`
+		    <tr>
+		    <td>${rowData["requestID"]}</td>
+		    <td>${rowData["projectName"]}</td>
+		    <td>${rowData["projectManager"]}</td>
+		    <td>${rowData["numberOfPositions"]}</td>
+		    <td>${rowData["statusOfRequest"]}</td>
+		    <td>${rowData["pointOfContact"]}</td>
+		    <td>${rowData["hiringStatus"]}</td>
+		    <td>${rowData["hrComments"]}</td>
+		    <td>${rowData["actions"]}</td>
+		    </tr>
+			`);
 		}
 	}
 
 	function showForm(){
 		hideAll();
-		showTable();
+		$('.table-container').show();
 		$('.form-container').show();
 	}
 
 
 	showLogin();
-
-	$('.loginBtn').click(function(event){
+	function loginSubmit(event){
 		var username = $('.username').val();
 		var userpwd = $('.userpwd').val();
-
 		if(username == localStorage.getItem("userName") && userpwd == localStorage.getItem("password")){
+			sessionStorage.setItem("loggedIn", "true");
 			showTable();
-			return false;
-		} else{
-			showLogin();
-			$('.login-form')[0].reset();
-			return false;
 		}
-	});
 
+	}
+
+	$('.loginBtn').click(loginSubmit);
+
+	if(sessionStorage.getItem("loggedIn")){
+		showTable();
+	} else{
+		showLogin();
+	}
 
 
 	$('.newRequestFormBtn').click(function(){
