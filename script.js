@@ -9,7 +9,7 @@ $(document).ready(function(){
 			"requestID" : "1",
 			"projectName" : "Project 1",
 			"projectManager" : "Mr.X",
-			"numberOfPositions" : "2",
+			"numberOfPositions" : "1",
 			"statusOfRequest" : "open",
 			"pointOfContact" : "Mr.Y",
 			"hiringStatus" : "Pending",
@@ -17,10 +17,21 @@ $(document).ready(function(){
 			"actions" : ""
 		},
 		{
-			"requestID" : "1",
-			"projectName" : "Project 1",
-			"projectManager" : "Mr.X",
+			"requestID" : "2",
+			"projectName" : "Project 2",
+			"projectManager" : "Professor.X",
 			"numberOfPositions" : "2",
+			"statusOfRequest" : "open",
+			"pointOfContact" : "Major",
+			"hiringStatus" : "Pending",
+			"hrComments" : "Waiting for Reply",
+			"actions" : ""
+		},
+		{
+			"requestID" : "3",
+			"projectName" : "Project Wolverine",
+			"projectManager" : "Dr.Cornelius",
+			"numberOfPositions" : "10",
 			"statusOfRequest" : "open",
 			"pointOfContact" : "Mr.Y",
 			"hiringStatus" : "Pending",
@@ -28,21 +39,10 @@ $(document).ready(function(){
 			"actions" : ""
 		},
 		{
-			"requestID" : "1",
-			"projectName" : "Project 1",
+			"requestID" : "4",
+			"projectName" : "Project 4",
 			"projectManager" : "Mr.X",
-			"numberOfPositions" : "2",
-			"statusOfRequest" : "open",
-			"pointOfContact" : "Mr.Y",
-			"hiringStatus" : "Pending",
-			"hrComments" : "Waiting for Reply",
-			"actions" : ""
-		},
-		{
-			"requestID" : "1",
-			"projectName" : "Project 1",
-			"projectManager" : "Mr.X",
-			"numberOfPositions" : "2",
+			"numberOfPositions" : "4",
 			"statusOfRequest" : "open",
 			"pointOfContact" : "Mr.Y",
 			"hiringStatus" : "Pending",
@@ -80,10 +80,26 @@ $(document).ready(function(){
 		    <td>${rowData["pointOfContact"]}</td>
 		    <td>${rowData["hiringStatus"]}</td>
 		    <td>${rowData["hrComments"]}</td>
-		    <td>${rowData["actions"]}</td>
+		    <td id="${rowData["requestID"]}" class="edit-action"><input type="button" value="Open"></td>
 		    </tr>
 			`);
 		}
+		$('.edit-action').click(editDetails);
+	}
+
+
+
+	function editDetails(event){
+		var rowClicked = $(event.target);
+		var requestIdOfRowClicked = rowClicked.attr("id");
+		var objectOfRowClicked = data.filter(o => o.requestID == requestIdOfRowClicked);
+		console.log("These are the Requested obejct detals"+ objectOfRowClicked);
+		$(".table-container tbody edit-action").next().append(`
+			<tr>
+				<td colspan="9">lalallalalallalallalallalallalal</td>
+			</tr>
+		`);
+
 	}
 
 	function showForm(){
@@ -94,6 +110,7 @@ $(document).ready(function(){
 
 
 	showLogin();
+	
 	function loginSubmit(event){
 		var username = $('.username').val();
 		var userpwd = $('.userpwd').val();
