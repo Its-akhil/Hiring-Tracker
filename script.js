@@ -92,6 +92,7 @@ $(document).ready(function(){
 	function editDetails(event){
 		var rowClicked = $(event.target);
 		var requestIdOfRowClicked = rowClicked.attr("id");
+		console.log("the request Id Of RowClicked"+requestIdOfRowClicked);
 		var objectOfRowClicked = data.filter(o => o.requestID == requestIdOfRowClicked);
 		console.log("These are the Requested obejct detals"+ objectOfRowClicked);
 		$(".table-container tbody edit-action").next().append(`
@@ -104,7 +105,7 @@ $(document).ready(function(){
 
 	function showForm(){
 		hideAll();
-		$('.table-container').show();
+
 		$('.form-container').show();
 	}
 
