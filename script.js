@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 
 	function editDetails(event){
-		var rowClicked = $(event.target);
+		var rowClicked = $(event.target).closest("td");
 		var requestIdOfRowClicked = rowClicked.attr("id");
 		console.log("the request Id Of RowClicked"+requestIdOfRowClicked);
 		var objectOfRowClicked = data.filter(o => o.requestID == requestIdOfRowClicked);
@@ -135,7 +135,7 @@ $(document).ready(function(){
 		showForm();
 	});
 
-	$('.form1Button').click(function(){
+	$('.requestFormButton').click(function(){
 		var projectName = $('#projectName').val();
 		var projectManager = $('#projectManager').val();
 		var numberOfPositions = $('#numberOfPositions').val();
@@ -184,6 +184,7 @@ $(document).ready(function(){
 					:&nbsp;${pointOfContact}
 				</td>
 
+				<td>
 					:&nbsp;${hiringStatus}
 				</td>
 
@@ -192,11 +193,12 @@ $(document).ready(function(){
 				</td>
 
 				<td>
-					:&nbsp;
+					&nbsp;<input type="button" value="Open">
 				</td>
 			</tr>
 		`);
-	console.log("Hello");
+	hideAll();
+	showTable();
 	});
 console.log("Hello1");
 

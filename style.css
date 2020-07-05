@@ -104,11 +104,11 @@
 	width: 90%;
 	margin: auto;
 }
-.form-container .table1 tr td:nth-child(even){				/*Styles for form-container -> form1 ->table -> table1*/
+.form-container .table1 tr td:nth-child(even){				/*Styles for form-container -> requestForm ->table -> table1*/
 	padding-left: 3em;
 	text-align: left;
 }
-.table2 tr td:nth-child(even){				/*Styles for form-container -> form1 ->table -> table1*/
+.table2 tr td:nth-child(even){				/*Styles for form-container -> requestForm ->table -> table1*/
  	padding-left: 1em;
  	text-align: right;
 }
@@ -121,7 +121,7 @@ input[type=text], input[type=number], select{
 	border-left: 0.3em solid red;
 	box-sizing: border-box;
 }
-				/*Styles for input elements of form-container -> form1 ->table -> table1*/
+				/*Styles for input elements of form-container -> requestForm ->table -> table1*/
 .table1 .minExpYears, .table1 .minExpMonths, .table1 .maxExpYears, .table1 .maxExpMonths,.table2 .salary0{
 	width: 5em;
 }
@@ -142,7 +142,7 @@ input[type=text], input[type=number], select{
 .hrfields{
 	color: blue;
 }
-.form1Button{
+.requestFormButton{
 	padding: 0.5em;
 	margin-left: 50%;
 }
