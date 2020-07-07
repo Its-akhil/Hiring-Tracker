@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Front End Code</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jQuery.js"></script>
+</head>
+<body>
+
+	  <!-- Login Module -->
+	<div class="login-container container">
+		<h3 style="color: lightgreen">APPLICATION TITLE</h3>
+		<form class="login-form">
+			<h4>LOGIN TO CONTINUE</h4>
+			<p>
+				<input type="text" name="username" class="username" placeholder="Username">
+			</p>
+			<p>
+				<input type="text" name="password" class="userpwd" placeholder="Password">
+			</p>
+			<button type="submit" name="login" class="loginBtn">LOGIN</button>
+		</form>
+	</div>
+
+
+	<!-- Table Module -->
+	<div class="table-container container">
+		<button type="button" name="newRequestFormBtn" class="newRequestFormBtn">+ New Request</button>
+		<table class="table-module tableModule">
+			<thead>
+				<tr>
+					<th>REQUEST ID</th>
+					<th>PROJECT NAME</th>
+					<th>PROJECT MANAGER</th>
+					<th>#POSITIONS</th>
+					<th>STATUS</th>
+					<th>POINT OF CONTACT(POC)</th>
+					<th>HIRING STATUS</th>
+					<th>HR COMMENTS</th>
+					<th>ACTIONS</th>
+				</tr>
+			</thead>
+			<tbody class="tableModule1">
+			</tbody>
+		</table>
+	</div>
+
+
+	<!-- Details Module -->
+	<div class="details-container container">
+		<table class="formData">
+			<!--<thead>
+				<tr>
+					<th>REQUEST ID</th>
+					<th>PROJECT NAME</th>
+					<th>PROJECT MANAGER</th>
+					<th>#POSITIONS</th>
+					<th>STATUS</th>
+					<th>POINT OF CONTACT(POC)</th>
+					<th>HIRING STATUS</th>
+					<th>HR COMMENTS</th>
+					<th>ACTIONS</th>
+				</tr>
+			</thead>-->
+			<tbody>
+				<tr>
+					<td colspan="5">
+						<table class="table4">	
+							<tr>
+								<td>
+									Project Name
+								</td>
+								<td class="projectName">
+									:
+								</td>
+							</tr>
+										
+							<tr>
+								<td>
+									Project Manager
+								</td>
+								<td class="projectManager">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									#Positions
+								</td>
+								<td class="numberOfPositions">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									Designation
+								</td>
+								<td class="designation">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									Status
+								</td>
+								<td class="statusOfRequest">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									Minimum Experience
+								</td>
+								<td class="minExp">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									Maximum Experience
+								</td>
+								<td class="maxExp">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									New/Replacement
+								</td>
+								<td class="statusOfEmployee">
+									:
+								</td>
+							</tr>
+						</table>
+					</td>	
+
+					<td  colspan="4">
+						<table class="table5">
+							<tr>
+								<td>
+									Skills
+								</td>
+								<td class="skills">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									Duration
+								</td>
+								<td class="duration">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									Probability Of Conversion
+								</td>
+								<td class="probabilityOfConversion">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									Salary
+								</td>
+								<td class="salary">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									Point Of Contact
+								</td>
+								<td class="pointOfContact">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									Hiring Status
+								</td>
+								<td class="hiringStatus">
+									:
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									HR Comments
+								</td>
+								<td class="hrComments">
+									:
+								</td>
+							</tr>
+						</table>
+					</td>	
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<button type="button" name="editDetailsContainerBtn" class="editDetailsContainerBtn">Edit</button>
+	</div>
+
+
+	<!-- Form Module -->
+	<div class="form-container container">
+		<h1 align="center">Hiring Request Form</h1>
+		<form class="requestForm">
+			<table class="table">
+				<tr>
+					<td>
+						<table class="table1">
+							<tr>
+								<td>
+									<label for="projectName">Project Name</label>
+								</td>
+								<td>
+									:<select id="projectName">
+										<option value="0"></option>
+										<option value="project1">Project 1</option>
+										<option value="project2">Project 2</option>
+										<option value="project3">Project 3</option>
+									</select>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="projectManager">Project Manager</label>
+								</td>
+								<td>
+									:<input type="text" name="projectManager" id="projectManager" placeholder="Max. 100 characters">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="numberOfPositions">#Positions</label>
+								</td>
+								<td>
+									:<input type="number" min="1" max="99" name="numberOfPositions" id="numberOfPositions" placeholder="1-99">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="designation">Designation</label>
+								</td>
+								<td>
+									:<input type="text" name="designation" id="designation">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="statusOfRequest">Status</label>
+								</td>
+								<td>
+									:<select id="statusOfRequest" name="statusOfRequest">
+										<option value="Open">Open</option>
+										<option value="InProgress">In Progress</option>
+												<option value="Close">Close</option>
+									</select>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="minExp">Minimum Experience</label>
+								</td>
+								<td>
+									:<input type="number" name="minExpYears" class="minExpYears" id="minExp" placeholder="0-99"> years
+									<input type="number" name="minExpMonths" class="minExpMonths" id="minExp" placeholder="0-12"> months
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="maxExp">Maximum Experience</label>
+								</td>
+								<td>
+									:<input type="number" name="maxExpYears" class="maxExpYears" id="maxExp" placeholder="0-99"> years
+									<input type="number" name="maxExpMonths" class="maxExpYears" id="maxExp" placeholder="0-12"> months
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="position">TYPE(New/Replacement)</label>
+								</td>
+								<td>
+									:<select name="position" id="position">
+										<option value="0"></option>
+										<option value="New">New</option>
+										<option value="Replacement">Replacement</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</td>
+
+					<td>
+						<table class="table2" align="right">
+							<tr>
+								<td>
+									<label for="skills">Skills</label></td>
+								<td>
+									:<input type="text" name="skills" id="skills" placeholder="Max. 200 characters">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="duration">Duration</label>
+								</td>
+								<td>
+									:<select name="duration" id="duration">
+										<option value="0"></option>
+										<option value="6 months">6 months</option>
+										<option value="12 months">12 months</option>
+									</select>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="probabilityOfConversion">Probability Of Conversion</label>
+								</td>
+								<td>
+									:<input type="number" name="probabilityOfConversion" id="probabilityOfConversion" placeholder="0-100">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="salary">Salary (Optional for Manager)</label>
+								</td>
+								<td class="noborder">
+									:<select name="salary" id="salary" class="salary0">
+										<option value="0"></option>
+										<option value=""></option>
+										<option value=""></option>
+									</select>
+									<input type="number" name="salary" id="salary" class="salary1" placeholder="0-99999">
+											&nbsp;-&nbsp;<input type="number" name="salary" id="salary" class="salary2" placeholder="0-99999">
+								</td>
+							</tr>
+
+							<tr>
+								<td class="hrfields">HR FIELDS</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="pointOfContact">Point Of Contact</label></td>
+								<td class="noborder">
+									:<input type="text" name="pointOfContact" id="pointOfContact">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="hiringStatus">Hiring Status</label></td>
+								<td class="noborder">
+									:<input type="text" name="hiringStatus" id="hiringStatus" placeholder="Max. 45 characters">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+								<label for="hrComments">HR Comments</label></td>
+								<td class="noborder">
+									:<input type="text" name="hrComments" id="hrComments" placeholder="Max. 45 characters">
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<button type="button" name="button" class="requestFormButton">Submit</button>
+		</form>
+	</div>
+
+
+
+	<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>	
