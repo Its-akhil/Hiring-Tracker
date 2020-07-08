@@ -52,6 +52,78 @@ $(document).ready(function(){
 
 	];
 
+
+	function setDetailsContainerValues(objectOfRowClicked){
+		$('td.projectName').text(objectOfRowClicked.projectName);
+		$('td.projectManager').text(objectOfRowClicked.projectManager);
+		$('td.numberOfPositions').text(objectOfRowClicked.numberOfPositions);
+		$('td.statusOfRequest').text(objectOfRowClicked.statusOfRequest);
+		$('td.pointOfContact').text(objectOfRowClicked.pointOfContact);
+		$('td.hiringStatus').text(objectOfRowClicked.hiringStatus);
+		$('td.hrComments').text(objectOfRowClicked.hrComments);
+	}
+
+	function handleIcons(tdClicked){
+		var $table = tdClicked.closest('table');
+		$table.find('td i.edit-action').show();
+		$table.find('td i.close-action').hide();
+
+		tdClicked.find('td i.close-action').show();
+		tdClicked.find('td i.edit-action').hide();
+	}
+
+	function setEditFormValues(objectOfRowClicked){
+		$('input.projectManager').val(objectOfRowClicked.projectManager);
+	}
+
+	function closeDetails(event){
+		$('.detailsContainer.detailsCopy').remove();
+		$('.form-container.formCopy').remove();
+		if(event){
+			$('i.close-action').hide();
+			$('i.edit-action').show();
+		}
+	}
+
+	//editDetails()- To show a pre-filled form with edit option when action button in last column of table is clicked.
+	function editDetails(event){
+		var tdClicked = $(event.target).closest('td');
+
+		var requestIdOfRowClicked = tdClicked.attr("id");
+
+		console.log("the request Id Of RowClicked"+requestIdOfRowClicked);
+
+		var objectOfRowClicked = data.find(obj => obj.requestID == requestIdOfRowClicked);
+
+		console.log("These are the Requested obejct detals");
+
+		console.log({Details: objectOfRowClicked});
+
+		var trRowClicked = tdClicked.closest('tr');
+
+		handleIcons(tdClicked);
+
+		var newTr = $(`
+			<tr>
+				<td colspan="9"></td>
+			</tr>
+		`).insertAfter(trRowClicked);
+
+		var detailsContainer = $('.detailsContainer').clone();
+		detailsContainer.addClass('detailsCopy').show();
+		newTr.find('td').append(detailsContainer);
+
+		setDetailsContainerValues(objectOfRowClicked);
+
+		detailsContainer.find('.editDetailsContainerBtn').click(function(){
+			closeDetails();
+			var formContainer = $('.form-container').clone();
+			formContainer.addClass('formCopy').show();
+			newTr.find('tr').append(formContainer);
+			setEditFormValues(objectOfRowClicked);
+		})
+	}
+
 	//hideAll();
 	function hideAll(){
 		$(".container").hide();
@@ -72,55 +144,39 @@ $(document).ready(function(){
 	function showTable(){
 		hideAll();
 		$(".table-container").show();
+
+		var $tbody = $(".table-container tbody");
+
+		$tbody.empty();
+
 		for(let i=0; i < data.length; i++){
 			var rowData = data[i];
-		    $(".table-container tbody").append(`
-		    <tr>
-		    <td>${rowData["requestID"]}</td>
-		    <td>${rowData["projectName"]}</td>
-		    <td>${rowData["projectManager"]}</td>
-		    <td>${rowData["numberOfPositions"]}</td>
-		    <td>${rowData["statusOfRequest"]}</td>
-		    <td>${rowData["pointOfContact"]}</td>
-		    <td>${rowData["hiringStatus"]}</td>
-		    <td>${rowData["hrComments"]}</td>
-		    <td id="${rowData["requestID"]}" class="edit-action"><input type="button" value="Open"></td>
-		    </tr>
+
+		    var tableTr = $(`
+			    <tr>
+				    <td>${rowData["requestID"]}</td>
+				    <td>${rowData["projectName"]}</td>
+				    <td>${rowData["projectManager"]}</td>
+				    <td>${rowData["numberOfPositions"]}</td>
+				    <td>${rowData["statusOfRequest"]}</td>
+				    <td>${rowData["pointOfContact"]}</td>
+				    <td>${rowData["hiringStatus"]}</td>
+				    <td>${rowData["hrComments"]}</td>
+				    <td id="${rowData["requestID"]}">
+				    	<i class="fa fa-bars edit-action" aria-hidden="true"></i>
+				    	<i class="fa fa-times close-action" aria-hidden="true"></i>
+				    </td>
+			    </tr>
 			`);
+		tableTr.find('td i.edit-action').click(editDetails);
+		tableTr.find('td i.close-action').click(closeDetails);
+		tableTr.find('td i.close-action').hide();
+
+		$tbody.append(tableTr);
 		}
-		$('.edit-action').click(editDetails);
-	}
-
-
-	//editDetails()- To show a pre-filled form with edit option when action button in last column of table is clicked.
-	function editDetails(event){
-		var rowClicked = $(event.target).closest('td');
-
-		var requestIdOfRowClicked = rowClicked.attr("id");
-
-		console.log("the request Id Of RowClicked"+requestIdOfRowClicked);
-
-		var objectOfRowClicked = data.find(obj => obj.requestID == requestIdOfRowClicked);
-
-		console.log("These are the Requested obejct detals");
-
-		console.log({Details: objectOfRowClicked});
-
-		var trRowClicked = rowClicked.closest('tr');
-
-		var newTr = $(`
-			<tr>
-				<td colspan="9"></td>
-			</tr>
-		`).insertAfter(trRowClicked);
-
-		var detailsContainer = $('.formData');
-
-		newTr.find('td').append(detailsContainer);
-
-		$('td.projectName').text(objectOfRowClicked.projectName);
 
 	}
+
 
 	//showForm()- Function to show a form i.e form-container defined in html because all containers are initially hidden.
 	function showForm(){
@@ -154,7 +210,8 @@ $(document).ready(function(){
 		showForm();
 	});
 
-	$('.requestFormButton').click(function(){
+	$('.requestFormSubmitButton').click(function(){
+		//Values captured to show in Table when Add New Request 
 		var projectName = $('#projectName').val();
 		var projectManager = $('#projectManager').val();
 		var numberOfPositions = $('#numberOfPositions').val();
@@ -176,7 +233,7 @@ $(document).ready(function(){
 		var hrComments = $('#hrComments').val();
 
 
-		let $tableModule = $("table.tableModule");
+		let $tableModule = $("table.table-module");
 		$tableModule.append(`
 			<tr>
 				<td>
@@ -216,8 +273,8 @@ $(document).ready(function(){
 				</td>
 			</tr>
 		`);
-	hideAll();
-	showTable();
+		hideAll();
+		showTable();
 	});
 console.log("Hello1");
 

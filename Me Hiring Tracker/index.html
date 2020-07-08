@@ -3,6 +3,7 @@
 <head>
 	<title>Front End Code</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="font-icons.js"></script>
 	<script src="jQuery.js"></script>
 </head>
 <body>
@@ -26,7 +27,7 @@
 	<!-- Table Module -->
 	<div class="table-container container">
 		<button type="button" name="newRequestFormBtn" class="newRequestFormBtn">+ New Request</button>
-		<table class="table-module tableModule">
+		<table class="table-module">
 			<thead>
 				<tr>
 					<th>REQUEST ID</th>
@@ -40,7 +41,7 @@
 					<th>ACTIONS</th>
 				</tr>
 			</thead>
-			<tbody class="tableModule1">
+			<tbody>
 			</tbody>
 		</table>
 	</div>
@@ -48,7 +49,7 @@
 
 	<!-- Details Module -->
 	<div class="details-container container">
-		<table class="formData">
+		<table class="detailsContainer">
 			<!--<thead>
 				<tr>
 					<th>REQUEST ID</th>
@@ -207,16 +208,19 @@
 						</table>
 					</td>	
 				</tr>
+				<tr><td colspan="9"><hr></td></tr>
+				<tr>
+					<td colspan="9" align="right">
+						<button type="button" name="editDetailsContainerBtn" class="editDetailsContainerBtn">Edit Details</button>
+					</td>
+				</tr>
 			</tbody>
 		</table>
-		<hr>
-		<button type="button" name="editDetailsContainerBtn" class="editDetailsContainerBtn">Edit</button>
 	</div>
 
 
 	<!-- Form Module -->
 	<div class="form-container container">
-		<h1 align="center">Hiring Request Form</h1>
 		<form class="requestForm">
 			<table class="table">
 				<tr>
@@ -389,13 +393,14 @@
 					</td>
 				</tr>
 			</table>
-			<button type="button" name="button" class="requestFormButton">Submit</button>
+			<button type="button" name="button" class="requestFormSubmitButton">Submit</button>
 		</form>
 	</div>
 
 
 
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="script1.js"></script>
 
 </body>
 </html>	
+

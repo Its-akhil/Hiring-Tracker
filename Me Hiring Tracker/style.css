@@ -73,26 +73,34 @@
 
 
 .details-container{				/*Styles for div details-container*/
-	margin: 2em;
+	/*margin: 2em;*/
 	background-color: #f3f3f3;
 }
 
-.formData{				/*Styles for div details-container -> formData*/
+.detailsContainer{				/*Styles for div details-container -> formData*/
 	width: 100%;
 	padding: 2em;
 	background-color: #f1f1f1;
 }
 
 
-.formData th, .formData td{				/*Styles for div details-container -> formData -> table rows*/
+.detailsContainer th, .detailsContainer td{				/*Styles for div details-container -> formData -> table rows*/
 	/*padding: 0.4em;	*/
 	font-size: 0.8em;
+	background-color: #f1f1f1;
 }
 
 .table5 td, .table4 td{ 				/*Styles for div details-container -> formData -> table4  -> table5 rows*/
 	/*padding: 0.4em;	*/
 	padding-right: 9.5em;
+	text-align: left;
 }
+.detailsContainer tbody .editDetailsContainerBtn{
+	padding: 0.5em;
+	background-color: blue;
+	border-radius: 0.2em;
+	color: #FFF;
+} 
 
 
 
@@ -138,7 +146,7 @@ input[type=text], input[type=number], select{
 .hrfields{
 	color: blue;
 }
-.requestFormButton{
+.requestFormSubmitButton{
 	padding: 0.5em;
 	margin-left: 50%;
 }
