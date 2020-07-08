@@ -1,0 +1,152 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.login-container{				/*Styles for login-container div*/
+	text-align: center;
+	margin: 1em;
+}
+
+.login-form{				/*//Styles for div login-container -> login-form*/
+	margin: 1em;
+	padding: 3em;
+	background-color: #FFF;
+	border: 0.1em solid #999;
+	box-shadow: 0.4em grey;
+	text-align: center;
+}
+
+.login-form h4{				/*Styles for div login-container -> login-form -> h4 div*/
+	color: cyan;
+	font-weight: bold;
+	margin: 1em;
+}
+
+.login-form input[type="text"]{				/*Styles div for login-container -> login-form -> input div*/
+	width: 30em;
+	margin: 1em;
+}
+
+.loginBtn{				/*Styles for div login-container -> login-form -> button div*/
+	margin: 1em;
+	padding: 0.5em;
+	width: 30em;
+	background-color: blue;
+	color: #FFF;
+	font-weight: bold;
+	border-radius: 0.3em;
+	border: 0.1em solid #FFF;
+}
+
+.table-container{				/*Styles for div table-container*/
+	margin:2em;
+	background-color: #f3f3f3;
+}
+
+.newRequestFormBtn{
+	background-color: blue;
+	color: white;
+	padding: 0.4em;
+	margin: 1em;
+	border-radius: 0.2em;
+	position: static;
+	right: 0;
+}
+
+.table-module{				/*Styles for div table-container -> table-module*/
+	width: 100%;
+	text-align: center;
+}
+
+.table-module thead tr{				/*Styles for div table-container -> table-module -> table head colour*/
+	background-color: lightblue;
+}
+
+.table-module th, .table-module td{				/*Styles for div table-container -> table-module -> table rows*/
+	padding: 0.4em;
+	font-size: 0.8em;
+}
+
+.table-module tbody tr:nth-of-type(even){				/*Styles for div table-container -> table-module -> table rows*/
+	background-color: #FFF;
+}
+
+
+.details-container{				/*Styles for div details-container*/
+	/*margin: 2em;*/
+	background-color: #f3f3f3;
+}
+
+.detailsContainer{				/*Styles for div details-container -> formData*/
+	width: 100%;
+	padding: 2em;
+	background-color: #f1f1f1;
+}
+
+
+.detailsContainer th, .detailsContainer td{				/*Styles for div details-container -> formData -> table rows*/
+	/*padding: 0.4em;	*/
+	font-size: 0.8em;
+	background-color: #f1f1f1;
+}
+
+.table5 td, .table4 td{ 				/*Styles for div details-container -> formData -> table4  -> table5 rows*/
+	/*padding: 0.4em;	*/
+	padding-right: 9.5em;
+	text-align: left;
+}
+.detailsContainer tbody .editDetailsContainerBtn{
+	padding: 0.5em;
+	background-color: blue;
+	border-radius: 0.2em;
+	color: #FFF;
+} 
+
+
+
+.table{				/*Styles for div table of form-container */
+	width: 90%;
+	margin: auto;
+}
+.form-container .table1 tr td:nth-child(even){				/*Styles for form-container -> requestForm ->table -> table1*/
+	padding-left: 3em;
+	text-align: left;
+}
+.table2 tr td:nth-child(even){				/*Styles for form-container -> requestForm ->table -> table1*/
+ 	padding-left: 1em;
+ 	text-align: right;
+}
+input[type=text], input[type=number], select{
+	padding: 0.5em;
+	margin: 0.5em;
+	width: 20em;
+	border-radius: 0.2em;
+	border: 0.1em solid #000;
+	border-left: 0.3em solid red;
+	box-sizing: border-box;
+}
+				/*Styles for input elements of form-container -> requestForm ->table -> table1*/
+.table1 .minExpYears, .table1 .minExpMonths, .table1 .maxExpYears, .table1 .maxExpMonths,.table2 .salary0{
+	width: 5em;
+}
+
+.table2 .salary1, .table2 .salary2{
+	width: 5.70em;
+}
+
+#statusOfRequest{
+	border-left: 0.3em solid green;
+}
+.noborder input[type="text"],.noborder select{
+	border: none;
+}
+.noborder input[type="number"], .table2 .salary0{
+	border: 0.1em solid #000;
+}
+.hrfields{
+	color: blue;
+}
+.requestFormSubmitButton{
+	padding: 0.5em;
+	margin-left: 50%;
+}
