@@ -65,11 +65,11 @@ $(document).ready(function(){
 
 	function handleIcons(tdClicked){
 		var $table = tdClicked.closest('table');
-		$table.find('td i.edit-action').show();
-		$table.find('td i.close-action').hide();
+		$table.find('i.edit-action').show();
+		$table.find('i.close-action').hide();
 
-		tdClicked.find('td i.close-action').show();
-		tdClicked.find('td i.edit-action').hide();
+		tdClicked.find('i.close-action').show();
+		tdClicked.find('i.edit-action').hide();
 	}
 
 	function setEditFormValues(objectOfRowClicked){
@@ -79,6 +79,8 @@ $(document).ready(function(){
 	function closeDetails(event){
 		$('.detailsContainer.detailsCopy').remove();
 		$('.form-container.formCopy').remove();
+		hideAll();
+		showTable();
 		if(event){
 			$('i.close-action').hide();
 			$('i.edit-action').show();
@@ -168,20 +170,27 @@ $(document).ready(function(){
 				    </td>
 			    </tr>
 			`);
-		tableTr.find('td i.edit-action').click(editDetails);
-		tableTr.find('td i.close-action').click(closeDetails);
-		tableTr.find('td i.close-action').hide();
+		tableTr.find('i.edit-action').click(editDetails);
+		tableTr.find('i.close-action').click(closeDetails);
+		tableTr.find('i.close-action').hide();
 
 		$tbody.append(tableTr);
 		}
 
 	}
+/*	$('i.close-action').click(function(){
+		closeDetails();
+	});*/
 
 
 	//showForm()- Function to show a form i.e form-container defined in html because all containers are initially hidden.
 	function showForm(){
 		hideAll();
 		$('.form-container').show();
+		$('.closeRequestForm').click(function(){
+			hideAll();
+			showTable();
+		});
 	}
 
 
@@ -269,13 +278,14 @@ $(document).ready(function(){
 				</td>
 
 				<td>
-					&nbsp;<input type="button" value="Open">
+					<i class="fa fa-bars edit-action" aria-hidden="true"></i>
+					`/*<i class="fa fa-times close-action" aria-hidden="true"></i>*/+`
 				</td>
 			</tr>
 		`);
 		hideAll();
 		showTable();
 	});
-console.log("Hello1");
+	console.log("Hello1");
 
 });
